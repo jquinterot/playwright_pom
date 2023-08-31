@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { HomeActions } from '../actions/HomeActions';
 import { BattleActions } from '../actions/BattleActions';
+import { ActionFactory } from '../actions/ActionsFactory';
 
 test.describe('first test', () => {
   test.beforeEach(async ({ page }) => {
@@ -12,8 +13,9 @@ test.describe('first test', () => {
   });
 
   test('Check battle page is displayed', async ({ page }) => {
-    const homeActions = new HomeActions(page);
-    const battleActions = new BattleActions(page);
+    const actionFactory = new ActionFactory(page);
+    const homeActions = actionFactory.createHomeActions();
+    const battleActions = actionFactory.createBattleActions();
     await page.screenshot({ path: 'screenshots/testScreenshot.png' });
     await homeActions.clickBattleHeader();
     await battleActions.clickBattleHeader();
