@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"**/*.ts\""
+    "format": "prettier --write \"**/*.ts\"",
+    "regression": "npx playwright test --grep @regression",
+    "acceptance": "npx playwright test --grep @acceptance"
   },
   "author": "",
   "license": "ISC",

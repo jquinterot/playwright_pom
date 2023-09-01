@@ -1,19 +1,13 @@
-import { test, expect } from '@playwright/test';
-import { ActionFactory } from '../actions/ActionsFactory';
+import { test, expect } from '../fixtures/ActionFactoryFixture';
 import { ButtonTypes} from '../enums/ButtonTypes';
 
-test.describe('first test', () => {
+test.describe('@regression test', () => {
 
   test.beforeEach(async ({ page }) => {
     await page.goto('');
   });
 
-  test('Check poke page has correct title', async ({ page }) => {
-    await expect(page).toHaveTitle(/PvPoke/);
-  });
-
-  test('Check battle page is displayed', async ({ page }) => {
-    const actionFactory = new ActionFactory(page);
+  test('Check battle page is displayed', async ({ page, actionFactory }) => {
     const homeActions = actionFactory.createHomeActions();
     const battleActions = actionFactory.createBattleActions();
 
@@ -24,8 +18,7 @@ test.describe('first test', () => {
     await battleActions.verifyBattleUrlIsCorrect(page);
   });
 
-  test('Check combat information is displayed', async ({ page }) => {
-    const actionFactory = new ActionFactory(page);
+  test('Check combat information is displayed', async ({ actionFactory }) => {
     const homeActions = actionFactory.createHomeActions();
     const battleActions = actionFactory.createBattleActions();
 
@@ -34,5 +27,16 @@ test.describe('first test', () => {
     await battleActions.clickButtonByClass(ButtonTypes.SINGLE);
     await battleActions.clickButtonByClass(ButtonTypes.MULTI);
     await battleActions.clickButtonByClass(ButtonTypes.MATRIX);
+  });
+});
+
+test.describe('@acceptance Check Poke page has correct title', () => {
+  
+  test.beforeEach(async ({ page }) => {
+    await page.goto('');
+  });
+  
+  test('check url test', async ({ page }) => {
+    await expect(page).toHaveTitle(/PvPoke/);
   });
 });
