@@ -1,19 +1,21 @@
 import { test, expect } from '../fixtures/ActionFactoryFixture';
-import { ButtonTypes} from '../enums/ButtonTypes';
+import { ButtonTypes } from '../enums/ButtonTypes';
 
 test.describe('@regression Check Poke battles are available', () => {
-
   test.beforeEach(async ({ page }) => {
     await page.goto('');
   });
 
-  test('Check Poke battle page is displayed', async ({ page, actionFactory }) => {
+  test('Check Poke battle page is displayed', async ({
+    page,
+    actionFactory,
+  }) => {
     const homeActions = actionFactory.createHomeActions();
     const battleActions = actionFactory.createBattleActions();
     await homeActions.clickBattleMainButton();
 
     await expect(page).toHaveScreenshot('battle-page.png');
-    
+
     await battleActions.verifyBattleHeaderIsDisplayed();
     await battleActions.verifyBattleUrlIsCorrect(page);
   });
@@ -31,11 +33,10 @@ test.describe('@regression Check Poke battles are available', () => {
 });
 
 test.describe('@acceptance Check Poke is correctly displayed', () => {
-  
   test.beforeEach(async ({ page }) => {
     await page.goto('');
   });
-  
+
   test('check Poke Home Page is displayed', async ({ page }) => {
     await expect(page).toHaveScreenshot('home-page.png');
   });

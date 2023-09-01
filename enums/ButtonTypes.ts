@@ -1,5 +1,5 @@
 export enum ButtonTypes {
-    SINGLE = 'single',
-    MULTI = 'multi',
-    MATRIX = 'matrix'
+  SINGLE = 'single',
+  MULTI = 'multi',
+  MATRIX = 'matrix',
 }

@@ -8,5 +8,6 @@ export class BattlePage {
   }
 
   getBatleHeader = () => this.page.getByRole('heading', { name: 'Battle' });
-  getButtonByClass = (buttonType:string) => this.page.locator(`[data="${buttonType}"]`);
+  getButtonByClass = (buttonType: string) =>
+    this.page.locator(`[data="${buttonType}"]`);
 }

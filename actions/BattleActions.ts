@@ -11,12 +11,11 @@ export class BattleActions {
     await expect(this.battlePage.getBatleHeader()).toHaveText('Battle');
   }
 
-  async verifyBattleUrlIsCorrect(page:Page) {
+  async verifyBattleUrlIsCorrect(page: Page) {
     await expect(page).toHaveURL(/.*battle/);
   }
 
-
-  async clickButtonByClass(buttonType:string) {
+  async clickButtonByClass(buttonType: string) {
     const singleButton = this.battlePage.getButtonByClass(buttonType);
     await singleButton.click();
   }
