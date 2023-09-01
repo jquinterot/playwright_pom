@@ -20,6 +20,6 @@ test.describe('first test', () => {
     await homeActions.clickBattleHeader();
     await battleActions.clickBattleHeader();
     await battleActions.checkHeaderContent();
-    await expect(page).toHaveURL(/.*battle/);
+    await battleActions.verifyBattleUrlIsCorrect(page);
   });
 });
