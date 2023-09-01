@@ -7,12 +7,7 @@ export class BattleActions {
     this.battlePage = new BattlePage(page);
   }
 
-  async clickBattleHeader() {
-    const battleHeader = this.battlePage.getBatleHeader();
-    await battleHeader.click();
-  }
-
-  async checkHeaderContent() {
+  async verifyBattleHeaderIsDisplayed() {
     await expect(this.battlePage.getBatleHeader()).toHaveText('Battle');
   }
 
@@ -20,20 +15,9 @@ export class BattleActions {
     await expect(page).toHaveURL(/.*battle/);
   }
 
-  
 
-  async clickSingleButton() {
-    const singleButton = this.battlePage.getSingleButton();
+  async clickButtonByClass(buttonType:string) {
+    const singleButton = this.battlePage.getButtonByClass(buttonType);
     await singleButton.click();
-  }
-
-  async clickMultiButton() {
-    const multiButton = this.battlePage.getMultiButton();
-    await multiButton.click();
-  }
-
-  async clickMatrixButton() {
-    const matrixButton = this.battlePage.getMatrixButton();
-    await matrixButton.click();
   }
 }

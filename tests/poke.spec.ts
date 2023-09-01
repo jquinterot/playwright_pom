@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { HomeActions } from '../actions/HomeActions';
-import { BattleActions } from '../actions/BattleActions';
 import { ActionFactory } from '../actions/ActionsFactory';
+import { ButtonTypes} from '../enums/ButtonTypes';
 
 test.describe('first test', () => {
   test.beforeEach(async ({ page }) => {
@@ -16,10 +15,23 @@ test.describe('first test', () => {
     const actionFactory = new ActionFactory(page);
     const homeActions = actionFactory.createHomeActions();
     const battleActions = actionFactory.createBattleActions();
+
     await page.screenshot({ path: 'screenshots/testScreenshot.png' });
-    await homeActions.clickBattleHeader();
-    await battleActions.clickBattleHeader();
-    await battleActions.checkHeaderContent();
+
+    await homeActions.clickBattleMainButton();
+    await battleActions.verifyBattleHeaderIsDisplayed();
     await battleActions.verifyBattleUrlIsCorrect(page);
+  });
+
+  test('Check combat information is displayed', async ({ page }) => {
+    const actionFactory = new ActionFactory(page);
+    const homeActions = actionFactory.createHomeActions();
+    const battleActions = actionFactory.createBattleActions();
+
+    await homeActions.clickBattleMainButton();
+    
+    await battleActions.clickButtonByClass(ButtonTypes.SINGLE);
+    await battleActions.clickButtonByClass(ButtonTypes.MULTI);
+    await battleActions.clickButtonByClass(ButtonTypes.MATRIX);
   });
 });

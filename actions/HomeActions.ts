@@ -8,7 +8,7 @@ export class HomeActions {
     this.homePage = new HomePage(page);
   }
 
-  async clickBattleHeader() {
+  async clickBattleMainButton() {
     const battleHeader = this.homePage.getBatleHeader();
     await battleHeader.click();
   }
