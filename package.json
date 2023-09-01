@@ -6,7 +6,9 @@
   "scripts": {
     "format": "prettier --write \"**/*.ts\"",
     "regression": "npx playwright test --grep @regression",
-    "acceptance": "npx playwright test --grep @acceptance"
+    "acceptance": "npx playwright test --grep @acceptance",
+    "accessibility": "npx playwright test --grep @accessibility",
+    "update-snapshots": "npx playwright test --update-snapshots"
   },
   "author": "",
   "license": "ISC",
@@ -25,5 +27,9 @@
     "hooks": {
       "pre-commit": "npm run format"
     }
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.7.3",
+    "dotenv": "^16.3.1"
   }
 }

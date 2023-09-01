@@ -10,10 +10,10 @@ test.describe('@regression Check Poke battles are available', () => {
   test('Check Poke battle page is displayed', async ({ page, actionFactory }) => {
     const homeActions = actionFactory.createHomeActions();
     const battleActions = actionFactory.createBattleActions();
-
-    await page.screenshot({ path: 'screenshots/testScreenshot.png' });
-
     await homeActions.clickBattleMainButton();
+
+    await expect(page).toHaveScreenshot('battle-page.png');
+    
     await battleActions.verifyBattleHeaderIsDisplayed();
     await battleActions.verifyBattleUrlIsCorrect(page);
   });
@@ -30,13 +30,17 @@ test.describe('@regression Check Poke battles are available', () => {
   });
 });
 
-test.describe('@acceptance Check Poke page has correct title', () => {
+test.describe('@acceptance Check Poke is correctly displayed', () => {
   
   test.beforeEach(async ({ page }) => {
     await page.goto('');
   });
   
-  test('check url test', async ({ page }) => {
+  test('check Poke Home Page is displayed', async ({ page }) => {
+    await expect(page).toHaveScreenshot('home-page.png');
+  });
+
+  test('check Poke Home has correct title ', async ({ page }) => {
     await expect(page).toHaveTitle(/PvPoke/);
   });
 });
