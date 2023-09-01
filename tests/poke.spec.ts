@@ -1,13 +1,13 @@
 import { test, expect } from '../fixtures/ActionFactoryFixture';
 import { ButtonTypes} from '../enums/ButtonTypes';
 
-test.describe('@regression test', () => {
+test.describe('@regression Check Poke battles are available', () => {
 
   test.beforeEach(async ({ page }) => {
     await page.goto('');
   });
 
-  test('Check battle page is displayed', async ({ page, actionFactory }) => {
+  test('Check Poke battle page is displayed', async ({ page, actionFactory }) => {
     const homeActions = actionFactory.createHomeActions();
     const battleActions = actionFactory.createBattleActions();
 
