@@ -3,8 +3,9 @@ import { ActionFactory } from '../actions/ActionsFactory';
 import { ButtonTypes} from '../enums/ButtonTypes';
 
 test.describe('first test', () => {
+
   test.beforeEach(async ({ page }) => {
-    await page.goto('https://pvpoke.com/');
+    await page.goto('');
   });
 
   test('Check poke page has correct title', async ({ page }) => {
@@ -29,7 +30,7 @@ test.describe('first test', () => {
     const battleActions = actionFactory.createBattleActions();
 
     await homeActions.clickBattleMainButton();
-    
+
     await battleActions.clickButtonByClass(ButtonTypes.SINGLE);
     await battleActions.clickButtonByClass(ButtonTypes.MULTI);
     await battleActions.clickButtonByClass(ButtonTypes.MATRIX);
