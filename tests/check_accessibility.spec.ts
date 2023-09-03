@@ -6,7 +6,7 @@ test.describe('@accessibility Check Pokepage accessibility', () => {
     page,
   }) => {
     await page.goto('');
-
+    //soft assertions
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
     //just to make it pass it needed

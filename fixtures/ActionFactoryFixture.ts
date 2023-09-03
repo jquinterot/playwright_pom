@@ -16,4 +16,5 @@ export const test = base.extend<ActionFactoryFixture>({
     await use(actionFactory);
   },
 });
+
 export { expect } from '@playwright/test';

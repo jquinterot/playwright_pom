@@ -1,4 +1,5 @@
-import { Page, Locator } from '@playwright/test';
+import { Page } from '@playwright/test';
+import { ButtonTypes } from '../enums/ButtonTypes';
 
 export class BattlePage {
   private page: Page;
@@ -8,6 +9,6 @@ export class BattlePage {
   }
 
   getBatleHeader = () => this.page.getByRole('heading', { name: 'Battle' });
-  getButtonByClass = (buttonType: string) =>
+  getButtonByClass = (buttonType: ButtonTypes) =>
     this.page.locator(`[data="${buttonType}"]`);
 }

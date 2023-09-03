@@ -1,5 +1,7 @@
 import { BattlePage } from '../pages/BattlePage';
 import { expect, Page } from '@playwright/test';
+import { ButtonTypes } from '../enums/ButtonTypes';
+
 export class BattleActions {
   private battlePage: BattlePage;
 
@@ -15,7 +17,7 @@ export class BattleActions {
     await expect(page).toHaveURL(/.*battle/);
   }
 
-  async clickButtonByClass(buttonType: string) {
+  async clickButtonByClass(buttonType: ButtonTypes) {
     const singleButton = this.battlePage.getButtonByClass(buttonType);
     await singleButton.click();
   }

@@ -20,6 +20,8 @@ test.describe('@regression Check Poke battles are available', () => {
     await battleActions.verifyBattleUrlIsCorrect(page);
   });
 
+  //storage state playwright, prepare environment withh the necessary data
+
   test('Check combat information is displayed', async ({ actionFactory }) => {
     const homeActions = actionFactory.createHomeActions();
     const battleActions = actionFactory.createBattleActions();
@@ -32,6 +34,7 @@ test.describe('@regression Check Poke battles are available', () => {
   });
 });
 
+//add template literal
 test.describe('@acceptance Check Poke is correctly displayed', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('');
