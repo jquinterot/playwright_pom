@@ -8,8 +8,6 @@ test.describe('@accessibility Check Pokepage accessibility', () => {
     await page.goto('');
     //soft assertions
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
-    expect(accessibilityScanResults.violations).toEqual([]);
-    //just to make it pass it needed
-    //expect(accessibilityScanResults.violations).not.toEqual([]);
+    expect.soft(accessibilityScanResults.violations).toEqual([]);
   });
 });

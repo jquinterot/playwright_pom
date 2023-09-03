@@ -14,7 +14,7 @@ test.describe('@regression Check Poke battles are available', () => {
     const battleActions = actionFactory.createBattleActions();
     await homeActions.clickBattleMainButton();
 
-    await expect(page).toHaveScreenshot('battle-page.png');
+    await expect.soft(page).toHaveScreenshot('battle-page.png');
 
     await battleActions.verifyBattleHeaderIsDisplayed();
     await battleActions.verifyBattleUrlIsCorrect(page);
