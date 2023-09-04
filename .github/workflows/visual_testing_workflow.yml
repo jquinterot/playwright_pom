@@ -4,6 +4,8 @@ on:
   push:
     branches:
       [main, master]
+  pull_request:
+    branches: [main, master]
 
 jobs:
   # Job to Upload Initial Baseline Images (Manual)
@@ -28,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: baseline-images
-          path: ./tests/poke.spec.ts-snapshots
+          path: ./tests/visual_check_battlepage.spec.ts-snapshots
 
   # Job to Run Visual Validation Tests (CI Validation)
   visual_validation:
@@ -45,7 +47,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: baseline-images
-          path: ./tests/poke.spec.ts-snapshots
+          path: ./tests/visual_check_battlepage.spec.ts-snapshots
 
       - name: Run Visual Validation Tests
         run: npm run visual

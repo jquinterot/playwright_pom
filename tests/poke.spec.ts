@@ -14,9 +14,6 @@ test.describe('@regression Check Poke battles are available', () => {
     const battleActions = actionFactory.createBattleActions();
     await homeActions.clickBattleMainButton();
 
-    //comment for CI
-    await expect.soft(page).toHaveScreenshot('battle-page.png');
-
     await battleActions.verifyBattleHeaderIsDisplayed();
     await battleActions.verifyBattleUrlIsCorrect(page);
   });
@@ -39,10 +36,6 @@ test.describe('@regression Check Poke battles are available', () => {
 test.describe('@acceptance Check Poke is correctly displayed', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('');
-  });
-
-  test.skip('check Poke Home Page is displayed', async ({ page }) => {
-    await expect(page).toHaveScreenshot('home-page.png');
   });
 
   test('check Poke Home has correct title ', async ({ page }) => {
