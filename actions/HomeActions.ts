@@ -1,5 +1,5 @@
 import { HomePage } from '../pages/HomePage';
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 
 export class HomeActions {
   private homePage: HomePage;
@@ -8,8 +8,11 @@ export class HomeActions {
     this.homePage = new HomePage(page);
   }
 
-  async clickBattleMainButton() {
-    const battleHeader = this.homePage.getBatleHeader();
-    await battleHeader.click();
+  async checkHomePageTitle(page: Page) {
+    await expect(page).toHaveTitle(/STORE/);
+  }
+
+  async verifyHomePageNavbarTitle() {
+    await expect(this.homePage.getNavBarTitle()).toHaveText('PRODUCT STORE');
   }
 }

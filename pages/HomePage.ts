@@ -7,5 +7,5 @@ export class HomePage {
     this.page = page;
   }
 
-  getBatleHeader = () => this.page.getByRole('heading', { name: 'Battle' });
+  getNavBarTitle = () => this.page.getByRole('link', { name: 'PRODUCT STORE' });
 }
