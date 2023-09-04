@@ -11,7 +11,7 @@ jobs:
   # Job to Upload Initial Baseline Images (Manual)
   upload_baseline_images:
     runs-on: ubuntu-latest
-      timeout-minutes: 60
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
