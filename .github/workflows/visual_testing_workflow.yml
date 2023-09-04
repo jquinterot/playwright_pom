@@ -35,6 +35,7 @@ jobs:
   # Job to Run Visual Validation Tests (CI Validation)
   visual_validation:
     runs-on: ubuntu-latest
+    needs: upload_baseline_images
 
     steps:
       - name: Checkout code
