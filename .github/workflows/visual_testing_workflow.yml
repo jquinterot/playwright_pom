@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: baseline-images
-          path: ./tests/visual_check_battlepage.spec.ts-snapshots
+          path: ./tests/visual_check_home_page.spec.ts-snapshots
       
       - name: Always Pass the First Job
         run: exit 0
@@ -51,7 +51,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: baseline-images
-          path: ./tests/visual_check_battlepage.spec.ts-snapshots
+          path: ./tests/visual_check_home_page.spec.ts-snapshots
 
       - name: Run Visual Validation Tests
         run: npm run visual

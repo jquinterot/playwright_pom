@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "format": "prettier --write \"**/*.ts\"",
-    "regression": "npx playwright test --grep @regression",
     "acceptance": "npx playwright test --grep @acceptance",
     "accessibility": "npx playwright test --grep @accessibility",
     "visual": "npx playwright test --grep @visual",

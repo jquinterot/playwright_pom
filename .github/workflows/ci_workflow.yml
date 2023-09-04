@@ -1,4 +1,4 @@
-name: CI Pokepage Tests
+name: CI Demoblaze Tests
 on:
   push:
     branches: [main, master]
