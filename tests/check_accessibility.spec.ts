@@ -5,7 +5,7 @@ test.describe('@accessibility Check Pokepage accessibility', () => {
   test('should not have any automatically detectable accessibility issues', async ({
     page,
   }) => {
-    await page.goto('');
+    await page.goto('https://pvpoke.com/');
     //soft assertions, it will still make fail pipeline
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
     //expect(accessibilityScanResults.violations).toEqual([]);

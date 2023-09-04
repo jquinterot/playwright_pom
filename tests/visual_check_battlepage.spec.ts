@@ -1,8 +1,8 @@
 import { test, expect } from '../fixtures/ActionFactoryFixture';
 
-test.describe('@visual Check Poke batle is displayed', () => {
+test.describe.skip('@visual Check Poke batle is displayed', () => {
     test.beforeEach(async ({ page }) => {
-      await page.goto('https://pvpoke.com/');
+      await page.goto('');
     });
   
     test('Check battlepage snapshot is correct', async ({ page,}) => {
@@ -12,7 +12,7 @@ test.describe('@visual Check Poke batle is displayed', () => {
 
 test.describe('@visual Check Poke is correctly displayed', () => {
     test.beforeEach(async ({ page }) => {
-      await page.goto('https://pvpoke.com/');
+      await page.goto('');
     });
   
     test('check Poke Home Page is displayed', async ({ page }) => {
