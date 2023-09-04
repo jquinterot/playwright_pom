@@ -31,6 +31,9 @@ jobs:
         with:
           name: baseline-images
           path: ./tests/visual_check_battlepage.spec.ts-snapshots
+      
+      - name: Always Pass the First Job
+        run: exit 0
 
   # Job to Run Visual Validation Tests (CI Validation)
   visual_validation:

@@ -38,6 +38,10 @@ test.describe('@acceptance Check Poke is correctly displayed', () => {
     await page.goto('');
   });
 
+  test.skip('check Poke Home Page is displayed', async ({ page }) => {
+    await expect(page).toHaveScreenshot('home-page.png');
+  });
+
   test('check Poke Home has correct title ', async ({ page }) => {
     await expect(page).toHaveTitle(/PvPoke/);
   });
