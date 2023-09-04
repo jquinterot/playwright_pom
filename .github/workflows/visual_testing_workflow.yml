@@ -31,9 +31,6 @@ jobs:
         with:
           name: baseline-images
           path: ./tests/visual_check_home_page.spec.ts-snapshots
-      
-      - name: Always Pass the First Job
-        run: exit 0
 
   # Job to Run Visual Validation Tests (CI Validation)
   visual_validation:
@@ -41,11 +38,15 @@ jobs:
     needs: upload_baseline_images
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - name: Install dependencies
-        run: npm install # or yarn install
+        run: npm ci
+  
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
       - name: Download Baseline Images
         uses: actions/download-artifact@v3
@@ -55,6 +56,7 @@ jobs:
 
       - name: Run Visual Validation Tests
         run: npm run visual
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:
