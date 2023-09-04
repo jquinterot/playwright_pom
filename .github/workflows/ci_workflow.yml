@@ -1,4 +1,4 @@
-name: Pokepage Tests
+name: CI Pokepage Tests
 on:
   push:
     branches: [main, master]
@@ -38,9 +38,7 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Run Playwright tests to get initial snapshots
-        run: npm run regression
-      - name: Run Playwright tests to do snapshot comparison
+      - name: Run Playwright tests
         run: npm run regression
       - uses: actions/upload-artifact@v3
         if: always()
