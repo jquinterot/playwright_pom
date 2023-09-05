@@ -19,7 +19,7 @@ jobs:
           node-version: 18
 
       - name: open ui directory
-        run: cd ui
+        run: cd ~/ui
 
       - name: Install dependencies
         run: npm ci
@@ -47,7 +47,7 @@ jobs:
         with:
           node-version: 18
       - name: open ui directory
-        run: cd ui
+        run: cd ~/ui
       - name: Install dependencies
         run: npm ci
   
