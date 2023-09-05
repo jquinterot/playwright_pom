@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: baseline-images
-          path: ./tests/visual_check_home_page.spec.ts-snapshots
+          path: ./ui/tests/visual_check_home_page.spec.ts-snapshots
 
   # Job to Run Visual Validation Tests (CI Validation)
   visual_validation:
@@ -60,7 +60,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: baseline-images
-          path: ./tests/visual_check_home_page.spec.ts-snapshots
+          path: ./ui/tests/visual_check_home_page.spec.ts-snapshots
 
       - name: Run Visual Validation Tests
         run: npm run visual
