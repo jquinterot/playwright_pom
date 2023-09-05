@@ -6,6 +6,9 @@ on:
     branches: [main, master]
 jobs:
   acceptance-tests:
+    defaults:
+      run:
+        working-directory: ui
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -13,11 +16,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: open ui directory
-        run: cd ui
-
-      -  name: check current directory
-         run: pwd
+      - name: check current directory
+        run: pwd
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
@@ -32,6 +32,9 @@ jobs:
           retention-days: 30
   
   accesibility-tests:
+    defaults:
+      run:
+        working-directory: ui
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -41,8 +44,6 @@ jobs:
           node-version: 18
       - name: check current directory
         run: pwd   
-      - name: open ui directory
-        run: cd ui
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers

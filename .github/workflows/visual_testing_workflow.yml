@@ -10,6 +10,9 @@ on:
 jobs:
   # Job to Upload Initial Baseline Images (Manual)
   upload_baseline_images:
+    defaults:
+      run:
+        working-directory: ui
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -38,6 +41,9 @@ jobs:
 
   # Job to Run Visual Validation Tests (CI Validation)
   visual_validation:
+    defaults:
+      run:
+        working-directory: ui
     runs-on: ubuntu-latest
     needs: upload_baseline_images
 
