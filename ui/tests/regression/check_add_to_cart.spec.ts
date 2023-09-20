@@ -1,14 +1,14 @@
 import { test } from '../../fixtures/ActionFactoryFixture';
 import { Products } from '../../enums/EnumExample';
 
-test.describe('@test Check that a product can be added to the cart', () => {
+test.describe('@regression Check that a product can be added to the cart', () => {
     
   test.beforeEach(async ({ page }) => {
     await page.goto('');
   });
 
   test('Check that a samsung cellphone can be added', async ({ actionFactory }) => {
-    
+
     const homeActions = actionFactory.createHomeActions();
     const productActions = actionFactory.createProductActions();
 

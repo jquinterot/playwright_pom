@@ -76,7 +76,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npm run acceptance
+        run: npm run regression
       - uses: actions/upload-artifact@v3
         if: always()
         with:
