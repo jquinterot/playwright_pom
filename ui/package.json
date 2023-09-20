@@ -8,6 +8,7 @@
     "acceptance": "npx playwright test --grep @acceptance",
     "accessibility": "npx playwright test --grep @accessibility",
     "visual": "npx playwright test --grep @visual",
+    "regression": "npx playwright test --grep @regression",
     "update-snapshots": "npx playwright test --update-snapshots",
     "lint": "eslint --ignore-path .eslintignore --ext .ts"
   },
