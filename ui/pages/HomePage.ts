@@ -8,4 +8,8 @@ export class HomePage {
   }
 
   getNavBarTitle = () => this.page.getByRole('link', { name: 'PRODUCT STORE' });
+
+  getCategoryItems = (category:string) => this.page.getByRole('link', { name: `${category}`});
+
+  getProduct = (product:string) =>  this.page.getByRole('link', {name: `${product}`});
 }

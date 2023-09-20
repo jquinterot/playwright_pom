@@ -1,5 +1,3 @@
-export enum EnumExample {
-  SINGLE = 'single',
-  MULTI = 'multi',
-  MATRIX = 'matrix',
+export enum Products {
+  GALAXY_S6 = 'Samsung galaxy s6',
 }

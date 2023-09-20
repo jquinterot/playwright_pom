@@ -15,4 +15,13 @@ export class HomeActions {
   async verifyHomePageNavbarTitle() {
     await expect(this.homePage.getNavBarTitle()).toHaveText('PRODUCT STORE');
   }
+
+  async selectCategory(category:string){
+    await this.homePage.getCategoryItems(category).click();
+  }
+
+  async selectProduct(product:string){
+    await this.homePage.getProduct(product).click();
+  }
+  
 }
