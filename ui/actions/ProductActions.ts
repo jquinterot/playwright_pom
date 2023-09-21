@@ -15,6 +15,4 @@ export class ProductActions {
   async checkAddedProduct(product:string) {
     await expect(this.productPage.getProductLabel(product)).toHaveText(`${product}`);
   }
-
-  
 }

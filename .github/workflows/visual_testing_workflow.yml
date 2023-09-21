@@ -60,7 +60,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: baseline-images
-          path: ./ui/tests/visual_check_home_page.spec.ts-snapshots
+          path: ./ui/tests/visual/visual_check_home_page.spec.ts-snapshots
 
       - name: Run Visual Validation Tests
         run: npm run visual
