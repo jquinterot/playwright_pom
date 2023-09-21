@@ -23,5 +23,9 @@ export class HomeActions {
   async selectProduct(product:string){
     await this.homePage.getProduct(product).click();
   }
+
+  async selectMenuOption(menuOption:string){
+    await this.homePage.getNavbarMenuOption(menuOption).click();
+  }
   
 }

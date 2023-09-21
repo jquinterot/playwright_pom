@@ -12,4 +12,6 @@ export class HomePage {
   getCategoryItems = (category:string) => this.page.getByRole('link', { name: `${category}`});
 
   getProduct = (product:string) =>  this.page.getByRole('link', {name: `${product}`});
+
+  getNavbarMenuOption = (menuOption:string) => this.page.getByRole('link', {name: `${menuOption}`, exact: true});
 }
