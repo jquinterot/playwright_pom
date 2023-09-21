@@ -15,4 +15,12 @@ export class ProductActions {
   async checkAddedProduct(product:string) {
     await expect(this.productPage.getProductLabel(product)).toHaveText(`${product}`);
   }
+
+  async checkProductPrice() {
+    await expect(this.productPage.getPriceLabel('$360')).toHaveText(`$360 *includes tax`);
+  }
+
+  async addToCart(){
+    await this.productPage.getAddToCartButton().click();
+  }
 }
