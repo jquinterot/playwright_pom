@@ -2,6 +2,9 @@ import { Page } from '@playwright/test';
 import { HomeActions } from './HomeActions';
 import { ProductActions } from './ProductActions';
 import { CartActions } from './CartActions';
+import { AboutUsActions } from './aboutUsActions';
+import { ContactActions } from './ContactActions';
+import { SingUpActions } from './SignUpActions';
 
 export class ActionFactory {
   constructor(private page: Page) {}
@@ -17,4 +20,18 @@ export class ActionFactory {
   createCartActions(): CartActions {
     return new CartActions(this.page);
   }
+
+  createAboutUsActions(): AboutUsActions {
+    return new AboutUsActions(this.page);
+  }
+
+  createContactActions(): ContactActions {
+    return new ContactActions(this.page);
+  }
+
+  createSingUpActions(): SingUpActions {
+    return new SingUpActions(this.page);
+  }
+
+  
 }

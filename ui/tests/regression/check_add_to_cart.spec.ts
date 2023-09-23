@@ -3,13 +3,13 @@ import { Products } from '../../enums/Products';
 import { MenuOptions } from '../../enums/MenuOptions';
 
 test.describe('@regression Check that a product can be added to the cart', () => {
+
   test.beforeEach(async ({ page }) => {
     await page.goto('');
   });
 
   test('Check that a samsung cellphone can be added', async ({
-    actionFactory,
-    page,
+    actionFactory
   }) => {
     const homeActions = actionFactory.createHomeActions();
     const productActions = actionFactory.createProductActions();
