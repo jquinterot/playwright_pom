@@ -2,7 +2,7 @@ import { Page } from '@playwright/test';
 import { HomeActions } from './HomeActions';
 import { ProductActions } from './ProductActions';
 import { CartActions } from './CartActions';
-import { AboutUsActions } from './aboutUsActions';
+import { AboutUsActions } from './AboutUsActions';
 import { ContactActions } from './ContactActions';
 import { SingUpActions } from './SignUpActions';
 
