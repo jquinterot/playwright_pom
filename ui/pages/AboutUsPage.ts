@@ -7,6 +7,7 @@ export class AboutUsPage {
     this.page = page;
   }
 
-  //method here getAddedProductTitle = (product:string) =>  this.page.getByRole('cell', {name: `${product}`});
+  getAboutUsTitle = () =>  this.page.getByRole('heading', {name: `About us`});
 
+  getCloseButton = () => this.page.locator('#videoModal').getByText('Close', { exact: true });
 }

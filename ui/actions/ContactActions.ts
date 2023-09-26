@@ -7,5 +7,4 @@ export class ContactActions {
   constructor(page: Page) {
     this.contactPage = new ContactPage(page);
   }
-
 }

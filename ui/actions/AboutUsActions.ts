@@ -8,5 +8,11 @@ export class AboutUsActions {
     this.aboutUsPage = new AboutUsPage(page);
   }
 
-  //Methods here
+  async isAboutUsTitleDisplayed(){
+    await expect(this.aboutUsPage.getAboutUsTitle()).toBeVisible();
+  }
+
+  async closeModal(){
+    await this.aboutUsPage.getCloseButton().click();
+  }
 }

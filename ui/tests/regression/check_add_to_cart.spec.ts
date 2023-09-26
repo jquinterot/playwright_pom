@@ -15,11 +15,11 @@ test.describe('@regression Check that a product can be added to the cart', () =>
     const productActions = actionFactory.createProductActions();
     const cartActions = actionFactory.createCartActions();
 
-    await test.step('When Select Phone category', async () => {
+    await test.step('When selects Phone category', async () => {
       await homeActions.selectCategory('Phones');
     });
 
-    await test.step('And Select Samsung Galaxy S6 product', async () => {
+    await test.step('And selects Samsung Galaxy S6 product', async () => {
       await homeActions.selectProduct(Products.GALAXY_S6);
     });
 
@@ -32,7 +32,7 @@ test.describe('@regression Check that a product can be added to the cart', () =>
       await productActions.addToCart();
     });
 
-    await test.step('When goes to cart', async () => {
+    await test.step('And goes to cart', async () => {
       await homeActions.selectMenuOption(MenuOptions.CART);
     });
 
@@ -40,7 +40,7 @@ test.describe('@regression Check that a product can be added to the cart', () =>
       await cartActions.checkProductIsDisplayed(Products.GALAXY_S6);
     });
 
-    await test.step('And the Samsung Galaxy S6product is deleted', async () => {
+    await test.step('And the Samsung Galaxy S6 product is deleted', async () => {
       await cartActions.deleteProductFromCard(Products.GALAXY_S6);
     });
   });

@@ -8,5 +8,8 @@ export class CartPage {
   }
 
   getAddedProductTitle = (product:string) =>  this.page.getByRole('cell', {name: `${product}`});
+
   getDeleteButton = () =>  this.page.getByRole('link', {name: `Delete`});
+  
+  getPlaceOrderButton = () => this.page.getByRole('button', {name: `Place Order`});
 }

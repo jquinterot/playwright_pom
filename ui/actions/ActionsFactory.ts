@@ -5,6 +5,7 @@ import { CartActions } from './CartActions';
 import { AboutUsActions } from './AboutUsActions';
 import { ContactActions } from './ContactActions';
 import { SingUpActions } from './SignUpActions';
+import { PlaceOrderActions } from './PlaceOrderActions';
 
 export class ActionFactory {
   constructor(private page: Page) {}
@@ -33,5 +34,7 @@ export class ActionFactory {
     return new SingUpActions(this.page);
   }
 
-  
+  createPlaceOrderActions(): PlaceOrderActions {
+    return new PlaceOrderActions(this.page);
+  }
 }

@@ -27,5 +27,4 @@ export class HomeActions {
   async selectMenuOption(menuOption:string){
     await this.homePage.getNavbarMenuOption(menuOption).click();
   }
-  
 }

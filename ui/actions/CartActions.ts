@@ -17,4 +17,7 @@ export class CartActions {
     await expect(this.cartPage.getAddedProductTitle(product)).not.toBeVisible();
   }
 
+  async selectPlaceOrder(){
+    await this.cartPage.getPlaceOrderButton().click();
+  }
 }
