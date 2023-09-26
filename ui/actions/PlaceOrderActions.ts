@@ -1,4 +1,4 @@
-import { CustomerInfo } from '../../types/CustomerInfo';
+import { CustomerInfo } from '../types/CustomerInfo';
 import { PlaceOrderPage } from '../pages/PlaceOrderPage';
 import { Page, expect } from '@playwright/test';
 

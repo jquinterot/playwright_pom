@@ -1,10 +1,8 @@
 import { test } from '../../fixtures/ActionFactoryFixture';
 import { Products } from '../../enums/Products';
 import { MenuOptions } from '../../enums/MenuOptions';
-import { johnCardInfo } from '../../../objects/CardInfo';
-import { johnInfo } from '../../../objects/CustomerInfo';
-import { CardInfo } from '../../../types/CardInfo';
-import { PlaceOrderActions } from '../../actions/PlaceOrderActions';
+import { johnCardInfo } from '../../objects/CardInfo';
+import { johnInfo } from '../../objects/CustomerInfo';
 
 test.describe('@regression Check place order', () => {
 
