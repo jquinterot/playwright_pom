@@ -1,8 +1,8 @@
-import { test } from '../../fixtures/ActionFactoryFixture';
-import { Products } from '../../enums/Products';
-import { MenuOptions } from '../../enums/MenuOptions';
-import { johnCardInfo } from '../../objects/CardInfo';
-import { johnInfo } from '../../objects/CustomerInfo';
+import { test } from '../../helpers/fixtures/ActionFactoryFixture';
+import { Products } from '../../helpers/enums/Products';
+import { MenuOptions } from '../../helpers/enums/MenuOptions';
+import { johnCardInfo } from '../../helpers/objects/CardInfo';
+import { johnInfo } from '../../helpers/objects/CustomerInfo';
 
 test.describe('@regression Check place order', () => {
 
@@ -57,7 +57,7 @@ test.describe('@regression Check place order', () => {
         await placeOrderActions.fillCity(johnInfo.city);
         await placeOrderActions.fillCard(johnCardInfo.number);
         await placeOrderActions.fillMonth(johnCardInfo.month);
-        await placeOrderActions.fillMonth(johnCardInfo.year);
+        await placeOrderActions.fillYear(johnCardInfo.year);
       });
 
       await test.step('And selects purchase', async () => {

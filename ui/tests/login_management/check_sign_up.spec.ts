@@ -1,5 +1,5 @@
-import { test } from '../../fixtures/ActionFactoryFixture';
-import { MenuOptions } from '../../enums/MenuOptions';
+import { test } from '../../helpers/fixtures/ActionFactoryFixture';
+import { MenuOptions } from '../../helpers/enums/MenuOptions';
 
 test.describe('@regression Check Sign up', () => {
 

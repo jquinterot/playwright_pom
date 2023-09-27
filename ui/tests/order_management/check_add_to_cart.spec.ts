@@ -1,6 +1,6 @@
-import { test } from '../../fixtures/ActionFactoryFixture';
-import { Products } from '../../enums/Products';
-import { MenuOptions } from '../../enums/MenuOptions';
+import { test } from '../../helpers/fixtures/ActionFactoryFixture';
+import { Products } from '../../helpers/enums/Products';
+import { MenuOptions } from '../../helpers/enums/MenuOptions';
 
 test.describe('@regression Check that a product can be added to the cart', () => {
 
