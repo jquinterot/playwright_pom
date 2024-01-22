@@ -23,7 +23,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npm run acceptance
+        run: npm run ui:acceptance
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -31,7 +31,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
   
-  accesibility-tests:
+  ui-accesibility-tests:
     defaults:
       run:
         working-directory: ui
@@ -49,7 +49,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npm run accessibility
+        run: npm run ui:accessibility
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -57,7 +57,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  regression-tests:
+  ui-regression-tests:
     defaults:
      run:
           working-directory: ui
