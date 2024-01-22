@@ -1,6 +1,5 @@
-ui/node_modules/
+node_modules/
 ui/test-results/
 ui/playwright-report/
 ui/playwright/.cache/
 .env
-api/node_modules/

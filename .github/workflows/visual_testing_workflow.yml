@@ -63,7 +63,7 @@ jobs:
           path: ./ui/tests/visual/visual_check_home_page.spec.ts-snapshots
 
       - name: Run Visual Validation Tests
-        run: npm run visual
+        run: npm run ui:visual
 
       - uses: actions/upload-artifact@v3
         if: always()

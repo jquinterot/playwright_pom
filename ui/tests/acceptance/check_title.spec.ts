@@ -2,7 +2,7 @@ import { test } from '../../helpers/fixtures/ActionFactoryFixture';
 
 test.describe('@acceptance Check Poke is correctly displayed', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('');
+    await page.goto('https://www.demoblaze.com/');
   });
 
   test('Check Demoblaze Home Page title should be displayed', async ({
