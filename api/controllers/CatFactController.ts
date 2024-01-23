@@ -12,4 +12,10 @@ export class CatFactController {
     const response = request.json();
     return response;
   };
+
+  getCatFacts = async () => {
+    const request = await this.request.get(`/facts`);
+    const response = request.json();
+    return response;
+  };
 }
