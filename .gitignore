@@ -3,4 +3,4 @@ ui/test-results/
 ui/playwright-report/
 ui/playwright/.cache/
 .env
-playwright-report/
+api/playwright-report/
