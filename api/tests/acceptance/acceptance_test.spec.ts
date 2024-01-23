@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { CatFact } from '../../types/CatFact';
-import { CatFacts } from '../../types/CatFacts';
+import { CatFact } from '../../helpers/types/CatFact';
+import { CatFacts } from '../../helpers/types/CatFacts';
 import { CatFactController } from '../../controllers/CatFactController';
-import { CAT_FACTS } from '../../objects/CatFacts';
+import { CAT_FACTS }  from '../../helpers/objects/CatFacts.ts';
 
 test('Check GET /fact @acceptance', async ({ request }) => {
   let catFact: CatFact;
