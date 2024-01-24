@@ -13,12 +13,13 @@
     "ui:update-snapshots": "cd ui && npx playwright test --update-snapshots",
     "api:acceptance": "cd api && npx playwright test --grep @acceptance",
     "performance:test": "cd performance && k6 run test.ts",
-    "lint": "eslint --ignore-path .eslintignore --ext .ts"
+    "lint": "eslint --ignore-path .eslintignore --ext .ts",
+    "install:browsers": "npx playwright install"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.38.1",
+    "@playwright/test": "^1.41.1",
     "@types/node": "^20.5.9",
     "husky": "^8.0.3",
     "prettier": "^3.0.3"
