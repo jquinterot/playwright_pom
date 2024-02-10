@@ -1,5 +1,5 @@
 import { test } from '../../helpers/fixtures/ActionFactoryFixture';
-import { Products } from '../../helpers/enums/Products';
+import { Products, ProductsPrices } from '../../helpers/enums/Products';
 import { MenuOptions } from '../../helpers/enums/MenuOptions';
 import { johnCardInfo } from '../../helpers/objects/CardInfo';
 import { johnInfo } from '../../helpers/objects/CustomerInfo';
@@ -28,7 +28,7 @@ test.describe('@regression Check place order', () => {
   
       await test.step('Then Samsung Galaxy S6 is displayed in product summary page', async () => {
         await productActions.checkAddedProduct(Products.GALAXY_S6);
-        await productActions.checkProductPrice();
+        await productActions.checkProductPrice(ProductsPrices.GALAXY_S6_PRICE);
       });
   
       await test.step('When adds the Samsung Galaxy S6 to the cart', async () => {

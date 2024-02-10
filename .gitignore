@@ -4,3 +4,4 @@ ui/playwright-report/
 ui/playwright/.cache/
 .env
 api/playwright-report/
+/test-results

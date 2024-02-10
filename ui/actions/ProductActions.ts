@@ -16,8 +16,8 @@ export class ProductActions {
     await expect(this.productPage.getProductLabel(product)).toHaveText(`${product}`);
   }
 
-  async checkProductPrice() {
-    await expect(this.productPage.getPriceLabel('$360')).toHaveText(`$360 *includes tax`);
+  async checkProductPrice(price:string) {
+    await expect(this.productPage.getPriceLabel(`$${price}`)).toHaveText(`$${price} *includes tax`);
   }
 
   async addToCart(){
