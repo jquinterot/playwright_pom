@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class AboutUsPage {
   private page: Page;
@@ -7,7 +7,6 @@ export class AboutUsPage {
     this.page = page;
   }
 
-  getAboutUsTitle = () =>  this.page.getByRole('heading', {name: `About us`});
-
-  getCloseButton = () => this.page.locator('#videoModal').getByText('Close', { exact: true });
+  getAboutUsTitle = ():Locator =>  this.page.getByRole('heading', {name: `About us`});
+  getCloseButton = ():Locator => this.page.locator('#videoModal').getByText('Close', { exact: true });
 }
