@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class SignUpPage {
   private page: Page;
@@ -7,7 +7,7 @@ export class SignUpPage {
     this.page = page;
   }
 
-  getUserNameInput = () => this.page.locator('#sign-username');
-  getUserPasswordInput = () => this.page.locator('#sign-password');
-  getSignupButton = () => this.page.getByRole('button', { name: 'Sign up'});
+  getUserNameInput = ():Locator => this.page.locator('#sign-username');
+  getUserPasswordInput = ():Locator => this.page.locator('#sign-password');
+  getSignupButton = ():Locator => this.page.getByRole('button', { name: 'Sign up'});
 }
