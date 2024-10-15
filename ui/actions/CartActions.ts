@@ -9,6 +9,7 @@ export class CartActions {
   }
 
   async checkProductIsDisplayed (product: string) {
+    expect(this.cartPage.getAddedProductTitle(product)).toBeVisible
     await expect(this.cartPage.getAddedProductTitle(product)).toHaveText(product);
   }
 
