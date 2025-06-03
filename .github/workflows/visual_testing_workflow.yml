@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -31,7 +31,7 @@ jobs:
         run: npm run ui:visual --ignore-snapshots || true
         
       - name: Upload Baseline Images
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: baseline-images
           path: ui/tests/visual/visual_check_home_page.spec.ts-snapshots
@@ -45,8 +45,8 @@ jobs:
     needs: upload_baseline_images
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
           
@@ -57,7 +57,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Download Baseline Images
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: baseline-images
           path: ui/tests/visual/visual_check_home_page.spec.ts-snapshots
@@ -65,7 +65,7 @@ jobs:
       - name: Run Visual Validation Tests
         run: npm run ui:visual
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
