@@ -12,7 +12,7 @@
     "ui:mode": "cd ui && npx playwright test --ui",
     "ui:update-snapshots": "cd ui && npx playwright test --update-snapshots",
     "api:acceptance": "cd api && npx playwright test --grep @acceptance",
-    "performance:test": "cd performance && k6 run test.ts",
+    "performance:test": "cd performance && k6 run load_test.ts",
     "lint": "eslint --ignore-path .eslintignore --ext .ts",
     "install:browsers": "npx playwright install"
   },
@@ -20,7 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
-    "@playwright/test": "^1.48.0",
+    "@playwright/test": "^1.52.0",
     "@types/node": "^20.5.9",
     "husky": "^8.0.3",
     "prettier": "^3.0.3"
