@@ -2,34 +2,25 @@ name: Visual Testing
 
 on:
   push:
-    branches:
-      [main, master]
+    branches: [main, master]
   pull_request:
     branches: [main, master]
 
 jobs:
   # Job to Upload Initial Baseline Images (Manual)
   upload_baseline_images:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.52.0  # Pre-installed browsers
     defaults:
       run:
         working-directory: ui
-    runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Run visual regression
+      - name: Generate Baseline Images
         run: npm run ui:visual --ignore-snapshots || true
-        
       - name: Upload Baseline Images
         uses: actions/upload-artifact@v4
         with:
@@ -38,33 +29,23 @@ jobs:
 
   # Job to Run Visual Validation Tests (CI Validation)
   visual_validation:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.52.0  # Same image for consistency
     defaults:
       run:
         working-directory: ui
-    runs-on: ubuntu-latest
     needs: upload_baseline_images
-
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          
       - name: Install dependencies
         run: npm ci
-  
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
       - name: Download Baseline Images
         uses: actions/download-artifact@v4
         with:
           name: baseline-images
           path: ui/tests/visual/visual_check_home_page.spec.ts-snapshots
-
       - name: Run Visual Validation Tests
         run: npm run ui:visual
-
       - uses: actions/upload-artifact@v4
         if: always()
         with:
