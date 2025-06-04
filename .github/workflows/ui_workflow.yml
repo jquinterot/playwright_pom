@@ -4,82 +4,64 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+
 jobs:
   ui-acceptance-tests:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.42.0  # Official image with pre-installed browsers
     defaults:
       run:
         working-directory: ui
     timeout-minutes: 60
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: check current directory
-        run: pwd
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npm run ui:acceptance
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
-          path: playwright-report/
+          name: playwright-report-acceptance
+          path: ui/playwright-report/
           retention-days: 30
-  
-  ui-accesibility-tests:
+
+  ui-accessibility-tests:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.42.0
     defaults:
       run:
         working-directory: ui
     timeout-minutes: 60
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: check current directory
-        run: pwd   
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npm run ui:accessibility
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
-          path: playwright-report/
+          name: playwright-report-accessibility
+          path: ui/playwright-report/
           retention-days: 30
 
   ui-regression-tests:
-    defaults:
-     run:
-          working-directory: ui
-    timeout-minutes: 60
     runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.42.0
+    defaults:
+      run:
+        working-directory: ui
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: check current directory
-        run: pwd
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npm run ui:regression
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
+          name: playwright-report-regression
           path: ui/playwright-report/
-          retention-days: 30            
-          
+          retention-days: 30
